@@ -66,6 +66,20 @@ def translate(character_values:list)->str:
       new_character_entry(character)
       return translate(character_values)
   return translated_string
+
+def common_sense(equation:str)->str:
+  '''
+  A function that implements certain common sense formatting into the equation.
+
+  Args:
+  equation(str): the equation to be changed.
+
+  Returns:
+  str: the modified equation.
+  '''
+  for match in re.findall('([a-z])([0-9])',equation):
+    equation = re.sub('([a-z])([0-9])',match[0]+"^"+match[1],equation,1)
+  return equation
   
 
 
@@ -76,6 +90,9 @@ def main():
 """
   stripped_code = strip_code(code)
   # print(stripped_code)
-  print(translate(stripped_code))
+  translated = translate(stripped_code)
+  print(translated)
+  common_sense_added = common_sense(translated)
+  print(common_sense_added)
 
 main()
