@@ -95,4 +95,5 @@ def main():
   common_sense_added = common_sense(translated)
   print(common_sense_added)
 
-main()
+if __name__ == "__main__":
+  main()
